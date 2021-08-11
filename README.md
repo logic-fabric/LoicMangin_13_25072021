@@ -1,2 +1,3 @@
-# LoicMangin_13_25072021
-Argent Bank - Project 13 of OC Front-end Developer Path - July 2021
+# Money Bank - Juillet 2021
+
+Code source du **Projet 13** - **_Utilisez une API pour un compte utilisateur bancaire avec React_** du parcours **Développeur Front-end** d'_OpenClassrooms_.
