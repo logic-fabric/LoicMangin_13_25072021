@@ -29,7 +29,7 @@ export function Header() {
 }
 
 const HeaderContainer = styled.header`
-  margin: 0 0 2rem 0;
+  margin: 0;
 `;
 
 const MainNav = styled.nav`
