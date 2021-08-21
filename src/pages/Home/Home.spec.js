@@ -12,4 +12,10 @@ describe("GIVEN a user on Home page", () => {
 
     expect(promotionalTitle).toBeTruthy();
   });
+
+  test("THEN there is a features presntation", () => {
+    const featuresTitle = screen.getByText(/Features/i);
+
+    expect(featuresTitle).toBeTruthy();
+  });
 });
