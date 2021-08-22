@@ -28,10 +28,12 @@ const LoginFormContainer = styled.section`
   width: 20rem;
   margin: 0 auto;
   padding: 2rem;
+  border-radius: 0.25rem;
 
   background: white;
 
   i {
+    color: ${styleVar.secondary900};
     font-size: 5rem;
   }
 `;

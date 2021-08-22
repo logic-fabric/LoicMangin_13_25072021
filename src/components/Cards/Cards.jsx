@@ -29,7 +29,7 @@ const PictoCardContainer = styled.article`
   h3 {
     margin: 1.25rem 0 0.5rem 0;
 
-    color: ${styleVar.neutral900};
+    color: ${styleVar.primary700};
     font-size: 1.25rem;
     font-weight: 700;
   }

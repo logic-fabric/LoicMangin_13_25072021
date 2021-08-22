@@ -41,6 +41,7 @@ const HeroBannerCard = styled.section`
   
   width: 22.5rem;
   padding: 2rem;
+  border-radius: 0.25rem;
 
   text-align: left;
 

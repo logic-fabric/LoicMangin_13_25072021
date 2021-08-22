@@ -32,12 +32,12 @@ const LabeledInput = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.5rem 0;
 
   text-align: left;
 
   label {
-    margin: 0 0 0.125rem 0;
+    margin: 0 0 0.25rem 0;
 
     font-size: 1.1rem;
     font-weight: 700;
@@ -45,6 +45,8 @@ const LabeledInput = styled.div`
 
   input {
     padding: 0.5rem;
+    border: 1px solid ${styleVar.neutral900};
+    border-radius: 0.25rem;
 
     font-size: 1.2rem;
   }
@@ -67,14 +69,20 @@ const SignInButton = styled.button`
 
   width: 100%;
   margin: 2rem 0 0 0;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: none;
+  border-radius: 0.25rem;
 
   color: white;
   font-size: 1.2rem;
   font-weight: 700;
 
-  background: ${styleVar.primary500};
+  background: ${styleVar.primary600};
 
   cursor: pointer;
+  transition: all 300ms;
+
+  &:hover {
+    background: ${styleVar.primary700};
+  }
 `;
