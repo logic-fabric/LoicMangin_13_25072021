@@ -74,6 +74,10 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
+  main {
+    flex: 1;
+  }
+
   p {
     line-height: 1.5;
   }
