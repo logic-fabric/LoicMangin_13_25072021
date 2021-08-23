@@ -1,6 +1,58 @@
 import styled from "styled-components";
 
+import { Button } from "../Button/Button";
 import { styleVar } from "../../utils/styleVariables";
+
+export function AccountCard({ accountName, amount, balanceType }) {
+  return (
+    <AccountCardContainer>
+      <div>
+        <h3>Argent Bank {accountName}</h3>
+
+        <Amount>${amount}</Amount>
+
+        <p>{balanceType} Balance</p>
+      </div>
+
+      <div>
+        <Button type="button" text="View transations" callToAction={false} />
+      </div>
+    </AccountCardContainer>
+  );
+}
+
+const AccountCardContainer = styled.article`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 80%;
+  margin: 0 auto 2rem auto;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+
+  text-align: left;
+
+  background: white;
+
+  h3 {
+    margin: 0 0 0.125rem 0;
+
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  p {
+    margin: 0;
+
+    line-height: initial;
+  }
+`;
+
+const Amount = styled.p`
+  font-size: 2.5rem;
+  font-weight: 700;
+`;
 
 export function PictoCard({ picto, altText, title, text }) {
   return (
