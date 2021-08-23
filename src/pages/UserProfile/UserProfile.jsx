@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AccountCard } from "../../components/Cards/Cards";
 import { Button } from "../../components/Button/Button";
 
-import { styleVar } from "../../utils/styleVariables";
+import { styleVar } from "../../utils/style/styleVariables";
 
 const USER_ACCOUNTS = [
   {

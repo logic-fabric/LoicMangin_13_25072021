@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { styleVar } from "../../utils/styleVariables";
+import { styleVar } from "../../utils/style/styleVariables";
 
 export function Footer() {
   return (

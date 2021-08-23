@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { HeroBanner } from "../../components/Banners/Banners";
 import { PictoCard } from "../../components/Cards/Cards";
 
-import { styleVar } from "../../utils/styleVariables";
+import { styleVar } from "../../utils/style/styleVariables";
 import PictoChat from "../../assets/picto-chat.png";
 import PictoMoney from "../../assets/picto-money.png";
 import PictoShield from "../../assets/picto-shield.png"

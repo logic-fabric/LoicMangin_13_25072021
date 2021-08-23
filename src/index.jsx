@@ -11,7 +11,7 @@ import { UserProfile } from "./pages/UserProfile/UserProfile";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 
-import { styleVar } from "./utils/styleVariables";
+import { styleVar } from "./utils/style/styleVariables";
 
 import reportWebVitals from "./reportWebVitals";
 

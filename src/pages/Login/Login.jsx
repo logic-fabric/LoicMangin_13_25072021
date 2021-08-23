@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 
-import { styleVar } from "../../utils/styleVariables";
+import { styleVar } from "../../utils/style/styleVariables";
 
 export function Login() {
   return (

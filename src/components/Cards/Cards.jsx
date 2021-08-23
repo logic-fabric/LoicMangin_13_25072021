@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 import { Button } from "../Button/Button";
-import { styleVar } from "../../utils/styleVariables";
+import { formatAmount } from "../../utils/str/format";
+import { styleVar } from "../../utils/style/styleVariables";
 
 export function AccountCard({ accountName, amount, balanceType }) {
   return (
@@ -9,7 +10,7 @@ export function AccountCard({ accountName, amount, balanceType }) {
       <div>
         <h3>Argent Bank {accountName}</h3>
 
-        <Amount>${amount}</Amount>
+        <Amount>${formatAmount(amount)}</Amount>
 
         <p>{balanceType} Balance</p>
       </div>
