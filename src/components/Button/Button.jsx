@@ -13,7 +13,7 @@ export function Button({ type, text, callToAction }) {
 const StyledButton = styled.button`
   display: block;
 
-  margin: 2rem 0 0 0;
+  margin: 0;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 0.25rem;

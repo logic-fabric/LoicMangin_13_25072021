@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { Button } from "../Button/Button";
@@ -22,6 +21,7 @@ export function LoginForm() {
       ...userInfos,
       [inputName]: event.target.value,
     });
+    setSubmitError(false);
   };
 
   const handleLoginFormSubmit = (event) => {
@@ -30,7 +30,14 @@ export function LoginForm() {
     setAskForAuthentication(true);
   };
 
-  console.log("userInfos =", userInfos);
+  console.log(
+    "userInfos =",
+    userInfos,
+    "| askForAuthentication",
+    askForAuthentication,
+    "| submitError =",
+    submitError
+  );
 
   useEffect(() => {
     if (askForAuthentication) {
@@ -94,6 +101,10 @@ export function LoginForm() {
         <label htmlFor="remember-me">Remember me</label>
       </LabeledCheckbox>
 
+      <ErrorMessage className={submitError ? "show-error" : ""}>
+        {submitError ? "Incorrect email or password" : ""}
+      </ErrorMessage>
+
       <Button type="submit" text="Sign In" callToAction={true} />
     </form>
   );
@@ -131,6 +142,19 @@ const LabeledCheckbox = styled.div`
   }
 `;
 
-const SignInLink = styled(Link)`
-  text-decoration: none;
+const ErrorMessage = styled.p`
+  margin: 1rem 0 1.5rem 0;
+  height: 0;
+
+  color: transparent;
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  transition: all 350ms;
+
+  &.show-error {
+    height: auto;
+
+    color: ${styleVar.danger500};
+  }
 `;
