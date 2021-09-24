@@ -15,25 +15,22 @@ export function LoginForm() {
   const [askForAuthentication, setAskForAuthentication] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
-  const handleUserEmailInputChange = (event) => {
-    setUserInfos({ ...userInfos, email: event.target.value });
+  const handleInputChange = (event) => {
+    const inputName = event.target.id;
 
-    setSubmitError(false);
+    setUserInfos({
+      ...userInfos,
+      [inputName]: event.target.value,
+    });
   };
-
-  const handlePasswordInputChange = (event) => {
-    setUserInfos({ ...userInfos, password: event.target.value });
-
-    setSubmitError(false);
-  };
-
-  console.log("userInfos =", userInfos);
 
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
 
     setAskForAuthentication(true);
   };
+
+  console.log("userInfos =", userInfos);
 
   useEffect(() => {
     if (askForAuthentication) {
@@ -83,21 +80,13 @@ export function LoginForm() {
   return (
     <form onSubmit={handleLoginFormSubmit}>
       <LabeledInput>
-        <label htmlFor="username">E-mail</label>
-        <input
-          type="text"
-          id="username"
-          onChange={handleUserEmailInputChange}
-        />
+        <label htmlFor="email">E-mail</label>
+        <input type="text" id="email" onChange={handleInputChange} />
       </LabeledInput>
 
       <LabeledInput>
         <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          onChange={handlePasswordInputChange}
-        />
+        <input type="password" id="password" onChange={handleInputChange} />
       </LabeledInput>
 
       <LabeledCheckbox>
