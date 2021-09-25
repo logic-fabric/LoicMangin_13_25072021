@@ -1,5 +1,3 @@
-import { Redirect } from "react-router";
-
 export const styleVar = {
   primary500: "#00bc77",
   primary600: "#00935d",
@@ -13,5 +11,5 @@ export const styleVar = {
   neutral700: "#2c3e50",
   neutral900: "#222",
 
-  largeWrapper: "max-width: 90rem;margin: 0 auto;padding: 0 2rem;"
+  largeWrapper: "max-width: 90rem;margin: 0 auto;padding: 0 2rem;",
 };
