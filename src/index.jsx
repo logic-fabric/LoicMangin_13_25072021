@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import { store } from "./redux/store";
 
 import { Error404 } from "./pages/Error404/Error404.jsx";
 import { Home } from "./pages/Home/Home";
@@ -17,31 +20,33 @@ import reportWebVitals from "./reportWebVitals";
 function initApp() {
   ReactDOM.render(
     <React.StrictMode>
-      <GlobalStyle />
+      <Provider store={store}>
+        <GlobalStyle />
 
-      <Router>
-        <Header />
+        <Router>
+          <Header />
 
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route path="/profile">
-            <UserProfile />
-          </Route>
+            <Route path="/profile">
+              <UserProfile />
+            </Route>
 
-          <Route>
-            <Error404 />
-          </Route>
-        </Switch>
-      </Router>
+            <Route>
+              <Error404 />
+            </Route>
+          </Switch>
+        </Router>
 
-      <Footer />
+        <Footer />
+      </Provider>
     </React.StrictMode>,
     document.getElementById("root")
   );

@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
+import { setEmail, setToken } from "../../redux/reducers";
+
 import { Button } from "../Button/Button";
+
 import { styleVar } from "../../utils/style/styleVariables";
 
 export function LoginForm() {
-  const [userInfos, setUserInfos] = useState({
+  const dispatch = useDispatch();
+
+  const [userInputs, setUserInputs] = useState({
     email: "",
     password: "",
-    token: "",
   });
-
-  const [askForAuthentication, setAskForAuthentication] = useState(false);
+  const [formIsSubmited, setFormIsSubmited] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
   const handleInputChange = (event) => {
     const inputName = event.target.id;
 
-    setUserInfos({
-      ...userInfos,
+    setUserInputs({
+      ...userInputs,
       [inputName]: event.target.value,
     });
     setSubmitError(false);
@@ -27,25 +31,25 @@ export function LoginForm() {
   const handleLoginFormSubmit = (event) => {
     event.preventDefault();
 
-    setAskForAuthentication(true);
+    setFormIsSubmited(true);
   };
 
   console.log(
-    "userInfos =",
-    userInfos,
-    "| askForAuthentication",
-    askForAuthentication,
+    "userInputs =",
+    userInputs,
+    "| formIsSubmited",
+    formIsSubmited,
     "| submitError =",
     submitError
   );
 
   useEffect(() => {
-    if (askForAuthentication) {
+    if (formIsSubmited) {
       const url = "http://localhost:3001/api/v1/user/login";
 
       const loginPayload = {
-        email: userInfos.email,
-        password: userInfos.password,
+        email: userInputs.email,
+        password: userInputs.password,
       };
 
       const requestOptions = {
@@ -60,19 +64,16 @@ export function LoginForm() {
       fetch(url, requestOptions)
         .then((response) => response.json())
         .then((json) => {
-          setUserInfos({
-            ...userInfos,
-            token: json.body.token,
-          });
+          dispatch(setEmail(userInputs.email));
+          dispatch(setToken(json.body.token));
 
           console.log("/user/login response to POST:", json);
         })
         .catch((error) => {
           setSubmitError(true);
 
-          setUserInfos({
-            ...userInfos,
-            token: "",
+          setUserInputs({
+            ...userInputs,
           });
 
           console.error(
@@ -80,9 +81,9 @@ export function LoginForm() {
           );
         });
 
-      setAskForAuthentication(false);
+      setFormIsSubmited(false);
     }
-  }, [userInfos, askForAuthentication]);
+  }, [dispatch, userInputs, formIsSubmited]);
 
   return (
     <form onSubmit={handleLoginFormSubmit}>
