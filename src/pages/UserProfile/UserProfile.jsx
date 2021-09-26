@@ -1,3 +1,6 @@
+import { Redirect } from "react-router";
+import { useSelector } from "react-redux";
+
 import styled from "styled-components";
 
 import { AccountCard } from "../../components/Cards/Cards";
@@ -24,6 +27,10 @@ const USER_ACCOUNTS = [
 ];
 
 export function UserProfile() {
+  const token = useSelector((state) => state.user.token);
+
+  if (!token) return <Redirect to="/" />
+
   return (
     <UserProfileMain>
       <UserProfileContainer>
