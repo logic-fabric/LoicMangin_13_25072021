@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { setEmail, setToken } from "../../redux/reducers";
 
 import styled from "styled-components";
 
@@ -8,6 +10,12 @@ import ArgentBankLogo from "../../assets/argent-bank-logo.png";
 
 export function Header() {
   const token = useSelector((state) => state.user.token);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(setEmail(""));
+    dispatch(setToken(""));
+  };
 
   return (
     <HeaderContainer>
@@ -35,7 +43,9 @@ export function Header() {
             <li>
               <i className="fas fa-sign-out-alt"></i>
 
-              <HeaderLink to="/">Sign Out</HeaderLink>
+              <HeaderLink to="/" onClick={logout}>
+                Sign Out
+              </HeaderLink>
             </li>
           ) : (
             ""
