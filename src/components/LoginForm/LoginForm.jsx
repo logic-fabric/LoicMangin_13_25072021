@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { Redirect } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 import { setEmail, setToken } from "../../redux/reducers";
@@ -9,6 +10,7 @@ import { Button } from "../Button/Button";
 import { styleVar } from "../../utils/style/styleVariables";
 
 export function LoginForm() {
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   const [userInputs, setUserInputs] = useState({
@@ -84,6 +86,8 @@ export function LoginForm() {
       setFormIsSubmited(false);
     }
   }, [dispatch, userInputs, formIsSubmited]);
+
+  if (token) return <Redirect to="/profile" />
 
   return (
     <form onSubmit={handleLoginFormSubmit}>
