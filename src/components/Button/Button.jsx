@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 import { styleVar } from "../../utils/style/styleVariables";
 
-export function Button({ type, text, callToAction }) {
+export function Button({ type, text, callToAction, handleClick }) {
   return (
-    <StyledButton type={type} callToAction={callToAction}>
+    <StyledButton type={type} callToAction={callToAction} onClick={handleClick}>
       {text}
     </StyledButton>
   );

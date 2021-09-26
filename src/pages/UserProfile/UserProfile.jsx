@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Redirect } from "react-router";
 import { useSelector } from "react-redux";
 
@@ -12,20 +13,24 @@ import { USER_ACCOUNTS } from "../../data/userAccountsMock";
 export function UserProfile() {
   const token = useSelector((state) => state.user.token);
 
+  const [editionMode, setEditionMode] = useState(false);
+
   if (!token) return <Redirect to="/" />;
+
+  console.log("editionMode >", editionMode);
 
   return (
     <UserProfileMain>
       <UserProfileContainer>
-        <h1>
-          Welcome back
-          <br />
-          Tony Jarvis
-        </h1>
+        <h2>Welcome back</h2>
+        {editionMode ? "" : <h2>Tony Jarvis!</h2>}
 
-        <EditButtonContainer>
-          <Button type="button" text="Edit Name" callToAction={false} />
-        </EditButtonContainer>
+        <Button
+          type="button"
+          text="Edit Name"
+          callToAction={false}
+          handleClick={() => setEditionMode(!editionMode)}
+        />
 
         <h2 className="sr-only">Accounts</h2>
 
@@ -43,23 +48,23 @@ export function UserProfile() {
 }
 
 const UserProfileMain = styled.main`
-  padding: 1rem 3rem;
+  padding: 2rem 3rem;
 
   background: ${styleVar.secondary900};
 
-  h1 {
+  h2 {
+    margin: 0;
+
     color: white;
+    font-size: 2rem;
+    font-weight: 700;
   }
 
   button {
-    margin: auto;
+    margin: 1.5rem auto;
   }
 `;
 
 const UserProfileContainer = styled.div`
   ${styleVar.largeWrapper}
-`;
-
-const EditButtonContainer = styled.div`
-  margin: 0 0 2rem 0;
 `;
