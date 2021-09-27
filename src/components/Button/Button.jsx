@@ -2,9 +2,20 @@ import styled from "styled-components";
 
 import { styleVar } from "../../utils/style/styleVariables";
 
-export function Button({ type, text, callToAction, handleClick }) {
+export function Button({
+  type,
+  text,
+  fullWidth = false,
+  center = false,
+  handleClick,
+}) {
   return (
-    <StyledButton type={type} callToAction={callToAction} onClick={handleClick}>
+    <StyledButton
+      type={type}
+      fullWidth={fullWidth}
+      center={center}
+      onClick={handleClick}
+    >
       {text}
     </StyledButton>
   );
@@ -28,9 +39,15 @@ const StyledButton = styled.button`
   transition: all 300ms;
 
   ${(props) =>
-    props.callToAction
+    props.fullWidth
       ? `
         width: 100%;`
+      : ``}
+
+  ${(props) =>
+    props.center
+      ? `
+        margin: 0 auto;`
       : ``}
 
   &:hover {

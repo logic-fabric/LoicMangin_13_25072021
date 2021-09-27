@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import { AccountCard } from "../../components/Cards/Cards";
 import { Button } from "../../components/Button/Button";
+import { EditNameForm } from "../../components/Forms/EditNameForm";
 
 import { styleVar } from "../../utils/style/styleVariables";
 import { USER_ACCOUNTS } from "../../data/userAccountsMock";
@@ -15,22 +16,30 @@ export function UserProfile() {
 
   const [editionMode, setEditionMode] = useState(false);
 
-  if (!token) return <Redirect to="/" />;
+  const toggleEditionMode = () => setEditionMode(!editionMode);
 
-  console.log("editionMode >", editionMode);
+  if (!token) return <Redirect to="/" />;
 
   return (
     <UserProfileMain>
       <UserProfileContainer>
         <h2>Welcome back</h2>
-        {editionMode ? "" : <h2>Tony Jarvis!</h2>}
 
-        <Button
-          type="button"
-          text="Edit Name"
-          callToAction={false}
-          handleClick={() => setEditionMode(!editionMode)}
-        />
+        <EditionContainer>
+          {editionMode ? "" : <h3>Tony Jarvis!</h3>}
+
+          {editionMode ? (
+            <EditNameForm toggleEditionMode={toggleEditionMode} />
+          ) : (
+            <Button
+              className="btn--edit"
+              type="button"
+              text="Edit Name"
+              center={true}
+              handleClick={toggleEditionMode}
+            />
+          )}
+        </EditionContainer>
 
         <h2 className="sr-only">Accounts</h2>
 
@@ -52,7 +61,8 @@ const UserProfileMain = styled.main`
 
   background: ${styleVar.secondary900};
 
-  h2 {
+  h2,
+  h3 {
     margin: 0;
 
     color: white;
@@ -60,11 +70,23 @@ const UserProfileMain = styled.main`
     font-weight: 700;
   }
 
-  button {
+  h3 {
+    margin: 0 0 1.5rem 0;
+  }
+
+  article button {
     margin: 1.5rem auto;
   }
 `;
 
 const UserProfileContainer = styled.div`
   ${styleVar.largeWrapper}
+`;
+
+const EditionContainer = styled.div`
+  margin: 0 0 2.5rem 0;
+
+  .btn--edit {
+    margin: auto;
+  }
 `;

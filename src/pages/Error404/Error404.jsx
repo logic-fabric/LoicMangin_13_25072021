@@ -20,7 +20,7 @@ export function Error404() {
             <Button
               type="button"
               text="Back to Home page"
-              callToAction={true}
+              fullWidth={true}
             />
           </Link>
         </div>

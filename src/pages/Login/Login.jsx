@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { LoginForm } from "../../components/Forms/LoginForm";
 
 import { styleVar } from "../../utils/style/styleVariables";
 

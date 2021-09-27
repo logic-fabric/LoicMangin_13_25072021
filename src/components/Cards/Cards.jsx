@@ -16,7 +16,7 @@ export function AccountCard({ accountName, amount, balanceType }) {
       </div>
 
       <div>
-        <Button type="button" text="View transations" callToAction={false} />
+        <Button type="button" text="View transations" />
       </div>
     </AccountCardContainer>
   );

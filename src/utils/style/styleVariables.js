@@ -8,6 +8,7 @@ export const styleVar = {
   danger500: "#e60000",
 
   neutral300: "#ccc",
+  neutral400: "#aaa",
   neutral700: "#2c3e50",
   neutral900: "#222",
 

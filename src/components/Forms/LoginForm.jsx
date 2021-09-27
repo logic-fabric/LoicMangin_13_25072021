@@ -93,7 +93,7 @@ export function LoginForm() {
     <form onSubmit={handleLoginFormSubmit}>
       <LabeledInput>
         <label htmlFor="email">E-mail</label>
-        <input type="text" id="email" onChange={handleInputChange} />
+        <input type="email" id="email" onChange={handleInputChange} />
       </LabeledInput>
 
       <LabeledInput>
@@ -110,7 +110,7 @@ export function LoginForm() {
         {submitError ? "Incorrect email or password" : ""}
       </ErrorMessage>
 
-      <Button type="submit" text="Sign In" callToAction={true} />
+      <Button type="submit" text="Sign In" fullWidth={true} />
     </form>
   );
 }
