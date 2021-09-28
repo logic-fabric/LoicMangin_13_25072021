@@ -37,6 +37,7 @@ const AccountCardContainer = styled.article`
   background: white;
 
   h3 {
+    color: ${styleVar.neutral900};
     margin: 0 0 0.125rem 0;
 
     font-size: 1rem;
